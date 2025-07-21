@@ -43,10 +43,10 @@
 - 这些是 Tengine 自带的核心模块，建议默认启用：
 - 
 ## 模块名称	说明
-- --with-http_ssl_module	支持 HTTPS/SSL
-- --with-http_v2_module	支持 HTTP/2
-- --with-http_realip_module	获取真实客户端 IP（如在反向代理后）
-- --with-http_stub_status_module	获取服务器状态信息
+--with-http_ssl_module	支持 HTTPS/SSL  
+--with-http_v2_module	支持 HTTP/2  
+--with-http_realip_module	获取真实客户端 IP（如在反向代理后）  
+--with-http_stub_status_module	获取服务器状态信息  
 - --with-http_gzip_static_module	支持预压缩的 .gz 文件
 - --with-http_gunzip_module	支持不兼容 gzip 的客户端
 - --with-http_sub_module	支持内容替换（如替换页面中的关键字）
