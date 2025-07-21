@@ -1,0 +1,36 @@
+通过编译tengin和tongsuo ，使其支持国密ssl证书，
+centos需要提前安装这些命令
+#安装需要的依赖，本次安装为centos7.9环境和银河麒麟v10环境下测试成功，以及编译进去部分模块
+[root@161 ]#yum install -y gcc pcre pcre-devel zlib zlib-devel geoip-devel  perl-IPC-Cmd perl-Data-Dumper perl-IPC-Cmd perl-Text-Template
+
+[root@161 ]# tar -xf tengine-3.1.0.tar.gz  -C /usr/local/
+[root@161 ]# cd /usr/local/tengine-3.1.0/
+#注意此处--with-openssl=../Tongsuo-8.4.0/ 为解压后的源码目录，不是编译后的目录
+[root@161 Tongsuo-8.4.0]# ./configure --prefix=/usr/local/tengine  \
+--add-module=modules/ngx_tongsuo_ntls  \
+--with-openssl=../Tongsuo-8.4.0/   \
+--with-openssl-opt="enable-ntls"  \
+--with-http_ssl_module   \
+--with-http_v2_module  \
+--with-http_realip_module  \
+--with-http_stub_status_module   \
+--with-http_gzip_static_module   \
+--with-http_sub_module  \
+--with-http_addition_module   \
+--with-http_flv_module   \
+--with-http_mp4_module   \
+--with-http_secure_link_module  \
+--with-http_auth_request_module  \
+--with-http_geoip_module  \
+--with-cc-opt="-I/usr/local/include" \
+--with-ld-opt="-L/usr/local/lib"  \
+--with-http_slice_module  \
+--with-mail_ssl_module  \
+--with-stream \
+--with-stream_ssl_module \
+--with-stream_sni \
+--add-module=./headers-more-nginx-module-master
+
+
+[root@161 Tongsuo-8.4.0]# make -j
+[root@161 Tongsuo-8.4.0]# make install
