@@ -1,5 +1,5 @@
 ## 通过编译tengine和tongsuo ，使tengine支持国密ssl证书，  
-centos需要提前安装这些命令，统信及其他环境因无arm环境请自行探索，  
+centos及银河麒麟需要提前安装这些命令，统信及其他环境因无环境请自行探索，  
 #安装需要的依赖，本次安装为centos7.9环境和银河麒麟v10环境下测试成功，以及编译进去部分模块  
 [root@161 ]#yum install -y gcc pcre pcre-devel zlib zlib-devel geoip-devel  perl-IPC-Cmd perl-Data-Dumper perl-IPC-Cmd perl-Text-Template  
 [root@161 ]# tar -xf tengine-3.1.0.tar.gz  -C /usr/local/  
